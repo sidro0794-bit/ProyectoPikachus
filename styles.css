@@ -89,3 +89,23 @@ main {
   font: inherit;
   cursor: pointer;
 }
+
+/* Botón de like */
+.like {
+  margin-top: 0.6rem;
+  border: 0;
+  background: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: transform 0.15s, color 0.15s;
+}
+
+.like:hover {
+  transform: scale(1.2);
+}
+
+.like--active {
+  color: #e11d48;
+}

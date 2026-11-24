@@ -24,8 +24,35 @@ function createCard(pokemon) {
   types.className = "card__types";
   types.textContent = pokemon.types.join(" · ");
 
-  card.append(img, number, name, types);
+  const like = document.createElement("button");
+  like.type = "button";
+  like.className = "like";
+  like.textContent = "♡";
+  like.setAttribute("aria-pressed", "false");
+  like.setAttribute("aria-label", `Dar like a ${pokemon.name}`);
+
+  card.append(img, number, name, types, like);
   return card;
+}
+
+// Un único listener para todos los botones de like (delegación de eventos)
+export function setLikeHandler(handler) {
+  cardsEl.addEventListener("click", (event) => {
+    const button = event.target.closest(".like");
+    if (!button) return;
+    handler(Number(button.closest(".card").dataset.id));
+  });
+}
+
+// Refleja visualmente si una ficha tiene like
+export function setCardLiked(id, liked) {
+  const button = cardsEl.querySelector(`.card[data-id="${id}"] .like`);
+  if (!button) return;
+  const name = button.closest(".card").querySelector(".card__name").textContent;
+  button.classList.toggle("like--active", liked);
+  button.textContent = liked ? "♥" : "♡";
+  button.setAttribute("aria-pressed", String(liked));
+  button.setAttribute("aria-label", `${liked ? "Quitar like a" : "Dar like a"} ${name}`);
 }
 
 export function renderCards(pokemons) {
