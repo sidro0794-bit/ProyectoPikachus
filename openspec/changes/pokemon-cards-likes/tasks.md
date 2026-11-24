@@ -11,7 +11,7 @@
 ## 3. Render de fichas y estados
 
 - [x] 3.1 Crear `js/ui.js` con `renderCards(pokemons)` que pinta una ficha por Pokémon (imagen, nombre, número, tipos) con `createElement`; verificar visualmente que se ven las 12 fichas.
-- [ ] 3.2 Añadir `showLoading()`, `showError(onRetry)` y `showEmpty()` en `ui.js` y conectarlos en `main.js`; verificar cortando la red (DevTools → Offline) que aparece el error y que "Reintentar" vuelve a cargar.
+- [x] 3.2 Añadir `showLoading()`, `showError(onRetry)` y `showEmpty()` en `ui.js` y conectarlos en `main.js`; verificar cortando la red (DevTools → Offline) que aparece el error y que "Reintentar" vuelve a cargar.
 - [ ] 3.3 Dar estilo básico en `styles.css` solo a cuadrícula responsive y tarjeta (sin estilos de like todavía); verificar que se ve bien en ancho de móvil y de escritorio.
 
 ## 4. Likes
