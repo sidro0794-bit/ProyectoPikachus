@@ -18,7 +18,7 @@
 
 - [x] 4.1 Crear `js/likes.js` con `loadLikes()`, `saveLikes()` y `toggleLike(id)` usando `localStorage` (clave `pokemon-likes`) y tolerando datos corruptos; verificar en consola que `toggleLike` alterna y que un valor basura en `localStorage` no rompe la carga.
 - [x] 4.2 Añadir botón de like en cada ficha (`aria-pressed`, con su estilo corazón vacío/lleno) y un único listener delegado en la cuadrícula; verificar que se puede marcar y desmarcar sin afectar a otras fichas.
-- [ ] 4.3 Aplicar los likes guardados al renderizar; verificar que tras recargar la página siguen marcados.
+- [x] 4.3 Aplicar los likes guardados al renderizar; verificar que tras recargar la página siguen marcados.
 
 ## 5. Documentación y verificación final
 
