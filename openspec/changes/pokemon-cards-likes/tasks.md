@@ -22,7 +22,7 @@
 
 ## 5. Refactor a componentes
 
-- [ ] 5.1 Crear `js/components/` con `Header`, `PokemonCard`, `LikeButton`, `CardGrid` y `StatusMessage` (cada uno devuelve un elemento DOM), conectarlos desde `main.js` y eliminar `js/ui.js`; verificar que carga, error/reintento, like/unlike y persistencia siguen funcionando igual.
+- [x] 5.1 Crear `js/components/` con `Header`, `PokemonCard`, `LikeButton`, `CardGrid` y `StatusMessage` (cada uno devuelve un elemento DOM), conectarlos desde `main.js` y eliminar `js/ui.js`; verificar que carga, error/reintento, like/unlike y persistencia siguen funcionando igual.
 
 ## 6. Documentación y verificación final
 

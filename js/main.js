@@ -1,24 +1,28 @@
-// Punto de entrada de la aplicación
+// Punto de entrada: compone los componentes con los datos (API y likes)
 import { fetchPokemons } from "./api.js";
-import { renderCards, showLoading, showError, showEmpty, setLikeHandler, setCardLiked } from "./ui.js";
 import { loadLikes, toggleLike } from "./likes.js";
+import { Header } from "./components/Header.js";
+import { CardGrid } from "./components/CardGrid.js";
+import { LoadingMessage, ErrorMessage, EmptyMessage } from "./components/StatusMessage.js";
 
-setLikeHandler((id) => setCardLiked(id, toggleLike(id)));
+const root = document.getElementById("app");
+const main = document.createElement("main");
+root.append(Header({ title: "Pokémon Cards + Likes" }), main);
 
 async function loadPokemons() {
-  showLoading();
+  main.replaceChildren(LoadingMessage());
   try {
     const pokemons = await fetchPokemons();
     if (pokemons.length === 0) {
-      showEmpty();
+      main.replaceChildren(EmptyMessage());
       return;
     }
-    renderCards(pokemons);
-    // Restaurar los likes guardados
-    for (const id of loadLikes()) setCardLiked(id, true);
+    main.replaceChildren(
+      CardGrid({ pokemons, likes: loadLikes(), onToggleLike: toggleLike })
+    );
   } catch (error) {
     console.error(error);
-    showError(loadPokemons);
+    main.replaceChildren(ErrorMessage({ onRetry: loadPokemons }));
   }
 }
 
