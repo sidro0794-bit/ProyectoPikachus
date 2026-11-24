@@ -26,5 +26,5 @@
 
 ## 6. Documentación y verificación final
 
-- [ ] 6.1 Completar `README.md` (cómo ejecutar con LiveServer, estructura y respuestas de evaluación); verificar que las instrucciones funcionan tal cual.
-- [ ] 6.2 Verificar en el navegador los tres puntos del enunciado: carga desde PokéAPI, like/unlike y persistencia tras recargar.
+- [x] 6.1 Completar `README.md` (cómo ejecutar con LiveServer, estructura y respuestas de evaluación); verificar que las instrucciones funcionan tal cual.
+- [x] 6.2 Verificar en el navegador los tres puntos del enunciado: carga desde PokéAPI, like/unlike y persistencia tras recargar.
