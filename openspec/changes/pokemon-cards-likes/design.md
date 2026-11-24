@@ -19,7 +19,8 @@ Proyecto nuevo, sin código previo. Debe poder abrirse con LiveServer de VS Code
 ## Decisions
 
 1. **Módulos ES nativos** (`<script type="module">`) en lugar de un único `app.js`.
-   Estructura: `js/api.js` (PokéAPI), `js/likes.js` (localStorage), `js/ui.js` (render), `js/main.js` (arranque). Alternativa descartada: un solo archivo, más rápido de escribir pero menos modular. Los módulos requieren servidor HTTP, cosa que LiveServer cubre.
+   Estructura: `js/api.js` (PokéAPI), `js/likes.js` (localStorage), `js/components/` (UI por componentes), `js/main.js` (arranque).
+   **Interfaz por componentes**: cada pieza de UI es una función en su propio archivo que recibe datos y callbacks y devuelve un elemento DOM: `Header`, `PokemonCard`, `LikeButton`, `CardGrid` y `StatusMessage` (carga/error/vacío). `main.js` solo los compone. Alternativas descartadas: un solo archivo, o un único `ui.js` con todo el DOM (menos modular y reutilizable). Los módulos requieren servidor HTTP, cosa que LiveServer cubre.
 
 2. **Lista fija de IDs** de Pokémon (12, incluido Pikachu #25) y una petición `GET /api/v2/pokemon/{id}` por cada uno, con `Promise.all`. Alternativa: `GET /pokemon?limit=12`, que obliga a una segunda petición por cada resultado. Con IDs fijos el resultado es predecible y la imagen se toma de `sprites.other["official-artwork"].front_default`, con `sprites.front_default` como respaldo.
 
@@ -27,7 +28,7 @@ Proyecto nuevo, sin código previo. Debe poder abrirse con LiveServer de VS Code
 
 4. **Likes como array de IDs** en `localStorage` bajo la clave `pokemon-likes`. Se usa el ID (estable) y no el nombre. Lectura con `try/catch` y validación de que sea un array de números; cualquier fallo devuelve lista vacía. Alternativa: objeto `{id: true}`, descartada por ser más verboso sin aportar nada aquí.
 
-5. **Render con delegación de eventos**: un único listener en la cuadrícula gestiona los clics en los botones de like (`data-id`), y al alternar solo se actualiza la ficha afectada en vez de repintar todo. Se usa `textContent`/`createElement` y no `innerHTML` con datos externos.
+5. **Eventos dentro de cada componente**: `LikeButton` gestiona su propio clic y avisa con un callback `onToggle`; `main.js` conecta ese callback con `likes.js`. Se usa `textContent`/`createElement` y no `innerHTML` con datos externos. Alternativa descartada: delegación de eventos en la cuadrícula (acopla la cuadrícula a las fichas).
 
 6. **Accesibilidad básica**: el botón de like es un `<button>` con `aria-pressed` y `aria-label`; los estados de carga/error usan `role="status"`/`role="alert"`.
 

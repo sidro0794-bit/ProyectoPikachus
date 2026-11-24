@@ -20,7 +20,11 @@
 - [x] 4.2 Añadir botón de like en cada ficha (`aria-pressed`, con su estilo corazón vacío/lleno) y un único listener delegado en la cuadrícula; verificar que se puede marcar y desmarcar sin afectar a otras fichas.
 - [x] 4.3 Aplicar los likes guardados al renderizar; verificar que tras recargar la página siguen marcados.
 
-## 5. Documentación y verificación final
+## 5. Refactor a componentes
 
-- [ ] 5.1 Completar `README.md` (cómo ejecutar con LiveServer, estructura y respuestas de evaluación); verificar que las instrucciones funcionan tal cual.
-- [ ] 5.2 Verificar en el navegador los tres puntos del enunciado: carga desde PokéAPI, like/unlike y persistencia tras recargar.
+- [ ] 5.1 Crear `js/components/` con `Header`, `PokemonCard`, `LikeButton`, `CardGrid` y `StatusMessage` (cada uno devuelve un elemento DOM), conectarlos desde `main.js` y eliminar `js/ui.js`; verificar que carga, error/reintento, like/unlike y persistencia siguen funcionando igual.
+
+## 6. Documentación y verificación final
+
+- [ ] 6.1 Completar `README.md` (cómo ejecutar con LiveServer, estructura y respuestas de evaluación); verificar que las instrucciones funcionan tal cual.
+- [ ] 6.2 Verificar en el navegador los tres puntos del enunciado: carga desde PokéAPI, like/unlike y persistencia tras recargar.
