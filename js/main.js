@@ -1,2 +1,5 @@
 // Punto de entrada de la aplicación
-console.log("Pokémon Cards + Likes: módulo principal cargado");
+import { fetchPokemons } from "./api.js";
+
+const pokemons = await fetchPokemons();
+console.log(`Obtenidos ${pokemons.length} Pokémon`, pokemons);

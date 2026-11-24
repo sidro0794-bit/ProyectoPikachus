@@ -6,7 +6,7 @@
 
 ## 2. Datos desde PokéAPI
 
-- [ ] 2.1 Crear `js/api.js` con `fetchPokemons(ids)` que devuelve `{ id, name, image, types }` por Pokémon y lanza error si falla una petición; verificar con `console.log` desde `main.js` que se obtienen los 12 Pokémon (incluido Pikachu #25).
+- [x] 2.1 Crear `js/api.js` con `fetchPokemons(ids)` que devuelve `{ id, name, image, types }` por Pokémon y lanza error si falla una petición; verificar con `console.log` desde `main.js` que se obtienen los 12 Pokémon (incluido Pikachu #25).
 
 ## 3. Render de fichas y estados
 
